@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html ng-app="main">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="global/styles/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container" ng-controller="mainController as main">
+        <div>
+            <h2>Customer Data</h2>
+        </div>
+        <div>
+            Search Customer:
+            <input type="text" ng-model="main.searchText" ng-change="main.searchTextChanged()" />
+        </div>
+        <div>
+            <h4>Search Results:</h4>
+        </div>
+        <div class="row">
+            <table class="table-condensed table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            First Name
+                        </th>
+                        <th>
+                            Last Name
+                        </th>
+                        <th>
+                            City
+                        </th>                    
+                   </tr>                   
+                    <tr ng-repeat="customer in main.filterdCustomerData">
+                        <td>
+                            {{customer.firstName}}
+                        </td>
+                        <td>
+                            {{customer.lastName}}
+                        </td>
+                        <td>
+                            {{customer.city}}
+                        </td>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>   
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script> 
+    <script src="app.js"></script>
+    <script src="customerdata.js"></script>
+</body>
+</html>
